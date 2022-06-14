@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "dearpygui-roast-caculator"
+version = "0.1.0"
+description = ""
+authors = ["YUvindu C <chany975@hsd.k12.or.us>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+dearpygui = "^1.6.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
