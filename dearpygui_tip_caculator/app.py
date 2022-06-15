@@ -1,4 +1,5 @@
 # app.py - My DearPyGUI windowed app
+from turtle import color
 import dearpygui.dearpygui as dpg
 
 dpg.create_context()
@@ -38,8 +39,8 @@ def caculation_F():
     dpg.set_value(y, perctange)
 
 #GUI
-dpg.create_viewport(title='Tip Caculator', width=600, height=400)
-with dpg.window(label="Tip Caculator", width=600, height=400 ):
+dpg.create_viewport(title='Tip Caculator', width=250, height=200)
+with dpg.window(label="Tip Caculator", width=250, height=200 ):
     dpg.add_text("Welcome to the Tip Caculator")
 
     dpg.add_input_float(label="Total Amount", width=100, tag=total_id )
@@ -47,14 +48,25 @@ with dpg.window(label="Tip Caculator", width=600, height=400 ):
     dpg.add_text("Tip percentage")
 #percentages 
     dpg.add_button(label="4%",callback=caculation_A)
+    dpg.add_same_line()
     dpg.add_button(label="5%",callback=caculation_B)
+    dpg.add_same_line()
     dpg.add_button(label="10%",callback=caculation_C)
     dpg.add_button(label="15%",callback=caculation_D)
+    dpg.add_same_line()
     dpg.add_button(label="20%",callback=caculation_E)
+    dpg.add_same_line()
     dpg.add_button(label="25%",callback=caculation_F)
-    dpg.add_text("Tip amount:",tag=y)
-    # dpg.add_text("",tag=y)
-    
+    dpg.add_text("Tip amount:")
+    dpg.add_text("",tag=y)
+
+with dpg.theme() as global_theme:
+    with dpg.theme_component(dpg.mvAll):
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (39, 76, 125), category=dpg.mvThemeCat_Core)
+        dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 10, category=dpg.mvThemeCat_Core)
+
+dpg.bind_theme(global_theme)
+
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
