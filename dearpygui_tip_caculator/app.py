@@ -58,6 +58,7 @@ with dpg.window(label="Tip Caculator", width=250, height=200 ):
     dpg.add_same_line()
     dpg.add_button(label="25%",callback=caculation_F)
     dpg.add_text("Tip amount:")
+    dpg.add_same_line()
     dpg.add_text("",tag=y)
 
 with dpg.theme() as global_theme:
