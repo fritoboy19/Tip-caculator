@@ -1,34 +1,59 @@
 # app.py - My DearPyGUI windowed app
-from locale import ABDAY_1
-from turtle import width
 import dearpygui.dearpygui as dpg
 
 dpg.create_context()
 
-#Generate unique ids for all widgets we want to change in runtime
-MV_id= dpg.generate_uuid()
-A1_id= dpg.generate_uuid()
-A2_id= dpg.generate_uuid()
-A3_id= dpg.generate_uuid()
-output_id= dpg.generate_uuid()
+total_id=dpg.generate_uuid()
+output_id = dpg.generate_uuid()
+#test function
+# def callback():
+#     output = "Tip Amount"+ str(dpg.get_value(total_id))
+#     print(output)
+
+def caculation_A():
+    perctange =str(dpg.get_value(total_id)/100*4)
 
 
-dpg.create_viewport(title='Roast Caculator', width=600, height=300)
-
-with dpg.window(label="Roast Caculator", width=600, height=300 ):
-    dpg.add_text("Welcome to the Roast Caculator")
-    dpg.add_input_int(label="Maximum Value", width=100, tag=MV_id)
-    dpg.add_input_text(label="Action 1", width=200)
-    dpg.add_input_int(label="Action 1 value", width=100, tag=A1_id)
-    dpg.add_input_text(label="Action 2", width=200)
-    dpg.add_input_int(label="Action 2 value", width=100, tag=A2_id)
-    dpg.add_input_text(label="Action 3", width=200)
-    dpg.add_input_int(label="Action 3 value", width=100, tag=A3_id)
-    dpg.add_button(label="Calculate")
-    dpg.add_button(label="Clear")
-    dpg.add_text("", tag=output_id, width=400)
+def caculation_B():
+    perctange =str(dpg.get_value(total_id)/100*5)
 
 
+def caculation_C():
+    perctange =str(dpg.get_value(total_id)/100*10)
+
+
+def caculation_D():
+    perctange =str(dpg.get_value(total_id)/100*15)
+
+
+def caculation_E():
+    perctange =str(dpg.get_value(total_id)/100*20)
+
+
+def caculation_F():
+    perctange =str(dpg.get_value(total_id)/100*25)
+
+
+
+
+dpg.create_viewport(title='Tip Caculator', width=600, height=300)
+
+with dpg.window(label="Tip Caculator", width=600, height=300 ):
+    dpg.add_text("Welcome to the Tip Caculator")
+
+    dpg.add_input_float(label="Total Amount", width=100, tag=total_id )
+#title 
+    dpg.add_text("Tip percentage")
+#percentages 
+    dpg.add_button(label="4%",callback=caculation_A)
+    dpg.add_button(label="5%",callback=caculation_B)
+    dpg.add_button(label="10%",callback=caculation_C)
+    dpg.add_button(label="15%",callback=caculation_D)
+    dpg.add_button(label="20%",callback=caculation_E)
+    dpg.add_button(label="25%",callback=caculation_F)
+#output
+    dpg.add_text("", tag=output_id)
+    
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.start_dearpygui()
