@@ -1,4 +1,4 @@
-from dearpygui_roast_caculator import __version__
+from dearpygui_tip_caculator import __version__
 
 
 def test_version():
